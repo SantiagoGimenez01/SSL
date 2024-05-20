@@ -1,5 +1,5 @@
-## Paso 1: Preprocesador ##
-# comandos ejecutados #
+# Paso 1: Preprocesador #
+## Comandos ejecutados ##
 - (1.a) Programa hecho
 - (1.b) gcc -E hello2.c -o hello2.i
 Este comando me genera un archivo hello2.i, este es el archivo fuente hello2.c pasado por el preprocesador y contiene las definiciones de la libreria "stdio.h", es decir la interfaz, tambien se deshace de los comentarios, se puede ver que el comentario que esta entre el int y main no se encuentra en el archivo hello2.i y al final de todo esta el codigo que nosotros escribimos en el archivo fuente. En conclusion en el archivo .i encontramos la inclusion de headers (stdio.h en este caso), la eliminacion de comentarios y el codigo escrito por nosotros.
@@ -8,8 +8,8 @@ Este comando me genera un archivo hello2.i, este es el archivo fuente hello2.c p
 - (1.e) gcc -E hello3.c -o hello3.i
 Las diferencias entre los archivos .c y .i de hello3 son que el archivo .c tiene unicamente el codigo que nosotros escribimos y el .i ademas de eso tiene directivas del preprocesador (lineas con #), estas lineas son generadas por el preprocesador y permiten entender el contexto y secuencia de inclusion de archivos al compilar.
 
-## Paso 2: Compilacion ##
-# comandos ejecutados #
+# Paso 2: Compilacion #
+## Comandos ejecutados ##
 - (2.a) gcc -S hello3.i -o hello3.s
 Al ejecutar este comando me genera un error (Expected declaration or statement at end of input) 
 - (2.b) Corregi el error descrito en el punto anterior agregandole un retorno a la funcion int main (return 0) y la llave que cierra la funcion main. Ahora si con gcc -S hello4.c -o hello4.s me genero el archivo compilado hello4.s
