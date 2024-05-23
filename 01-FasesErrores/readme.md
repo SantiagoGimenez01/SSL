@@ -15,5 +15,17 @@ Al ejecutar este comando me genera un error (Expected declaration or statement a
 - (2.b) Corregi el error descrito en el punto anterior agregandole un retorno a la funcion int main (return 0) y la llave que cierra la funcion main. Ahora si con gcc -S hello4.c -o hello4.s me genero el archivo compilado hello4.s
 - (2.c) El lenguaje ensamblador es un lenguaje de programacion de bajo nivel mas cercano al hardware que se escribe a partir de mnemonicos y trabaja con los registros de la cpu, es el paso previo al lenguaje maquina. El objetivo de este codigo es permitir que el codigo fuente (alto nivel) escrito por el programador pueda ser entendido luego por el hardware que trabaja mediante el codigo maquina (ceros y unos), es decir funciona como un intermediario entre lo que escribe el programador y lo que entiende la computadora.
 - (2.d) gcc -c hello4.s -o hello4.o
+Me genera el archivo objeto
+
+# Paso 3: Vinculacion #
+## Comandos ejecutados ##
+- (3.a) gcc hello4.o -o hello4
+Al ejecutar este comando me tira un error (undefined reference to 'prontf').
+- (3.b) Corrijo el archivo hello4.c en hello5.c cambiando la invocacion de la funcion de 'prontf' a 'printf, luego ejecuto el comando gcc hello5.c -o hello5 y me genera el ejecutable
+- (3.c) Al ejecutar el codigo me muestra lo siguiente en consola: 'La respuesta es 4200880'. Yo creo que es un bug que surge ya que si bien declaramos la variable i y le asignamos el valor entero 42, cuando usamos el formato %d para imprimir i, nunca la llamamos luego de las comillas para que se asocie el %d con i. Por lo que estuve investigando el resultado que me tira por consola es un resultado impredescible ya que al no pasarle el argumento (i), toma un valor no definido de la pila de argumentos.
+
+# Paso 4: Correccion de bug #
+## Comandos ejecutados ##
+
 
 
