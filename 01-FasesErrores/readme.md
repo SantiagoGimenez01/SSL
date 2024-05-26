@@ -27,6 +27,7 @@ Al ejecutar este comando me tira un error (undefined reference to 'prontf').
 # Paso 4: Correccion de bug #
 ## Comandos ejecutados ##
 - (4.a) Corrijo hello5.c en hello6.c y compilo usando el comando gcc hello6.c -o hello6
+El codigo funciona como deberia hacerlo, compila correctamente e imprime por pantalla: 'La respuesta es 42'
 
 
 
