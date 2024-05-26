@@ -33,15 +33,16 @@ El codigo funciona como deberia hacerlo, compila correctamente e imprime por pan
 ## Comandos ejecutados ##
 - (5.a) Escribo hello7.c
 - (5.b)
-- - (i) Al compilar el archivo hello7.c primero me aparece un warning (implicit declaration of function 'printf') y luego otro en el mismo lugar (incompatible implicit declaration of built-in function 'printf').
-- - (ii) Un prototipo indica de una funcion que valor retorna, como se llama, cuales son y de que tipo son los parametros que recibe. Se podria decir que es como su "firma" ya que describe todo lo mencionado anteriormente pero no muestra su contenido. Se pueden generar declarandolo arriba de la funcion main o tambien haciendo un archivo header (.h) y declarandolos alli.
-- - (iii) Una declaracion implicita ocurre cuando invocas una funcion en el codigo main por ejemplo y la funcion invocada no esta previamente declarada. 
-- - (iv) Tengo mis dudas con esta pregunta pero si no entendi mal y por lo que estuve investigando en internet la especificacion indica que las declaraciones implicitas no son una buena practica y que no estan bien vistas en las versiones de c99 en adelante ya que presentan un comportamiento indefinido.
-- -(v) Las principales implementaciones permiten este tipo de declaraciones (implicitas) pero como se pudo ver generan warnings respecto a su uso.
-- -(vi) Una funcion built-in es una funcion que no tiene la necesidad de ser definida o declarada, viene con el lenguaje o con el compilador ya integrada para poder usarla directamente.
-- - (vii) Yo creo que gcc acepta el codigo de hello7.c ya que permite la declaracion implicita de funciones por razones de compatibilidad pero a la vez te notifica este tipo de declaracion a traves de warnings. No me parece que vaya contra la especificacion ya que te avisa sobre las declaraciones implicitas pero las compila ya que por ejemplo si una empresa tiene un codigo desarrollado con una version anterior a c99 y usa declaraciones implicitas no va a poder correrlo con gcc si este no permitiese ese tipo de declaraciones, por lo que me parece correcto que tire los warnings y que a la vez compile por razones de compatibilidad de versiones.
+  - (i) Al compilar el archivo hello7.c primero me aparece un warning (implicit declaration of function 'printf') y luego otro en el mismo lugar (incompatible implicit declaration of built-in function 'printf').
+  - (ii) Un prototipo indica de una funcion que valor retorna, como se llama, cuales son y de que tipo son los parametros que recibe. Se podria decir que es como su "firma" ya que describe todo lo mencionado anteriormente pero no muestra su contenido. Se pueden generar declarandolo arriba de la funcion main o tambien haciendo un archivo header (.h) y declarandolos alli.
+  - (iii) Una declaracion implicita ocurre cuando invocas una funcion en el codigo main por ejemplo y la funcion invocada no esta previamente declarada. 
+  - (iv) Tengo mis dudas con esta pregunta pero si no entendi mal y por lo que estuve investigando en internet la especificacion indica que las declaraciones implicitas no son una buena practica y que no estan bien vistas en las versiones de c99 en adelante ya que presentan un comportamiento indefinido.
+  - (v) Las principales implementaciones permiten este tipo de declaraciones (implicitas) pero como se pudo ver generan warnings respecto a su uso.
+  - (vi) Una funcion built-in es una funcion que no tiene la necesidad de ser definida o declarada, viene con el lenguaje o con el compilador ya integrada para poder usarla directamente.
+  - (vii) Yo creo que gcc acepta el codigo de hello7.c ya que permite la declaracion implicita de funciones por razones de compatibilidad pero a la vez te notifica este tipo de declaracion a traves de warnings. No me parece que vaya contra la especificacion ya que te avisa sobre las declaraciones implicitas pero las compila ya que por ejemplo si una empresa tiene un codigo desarrollado con una version anterior a c99 y usa declaraciones implicitas no va a poder correrlo con gcc si este no permitiese ese tipo de declaraciones, por lo que me parece correcto que tire los warnings y que a la vez compile por razones de compatibilidad de versiones.
 
 En conclusion, el codigo del archivo hello7.c tiene sus warnings debido a que se usan funciones no declaradas como printf pero en estas se permite usar la declaracion implicita la cual permite usar la funcion sin declararla formalmente gracias a que el compilador la "conoce" y puede asumir que esa funcion existe, si bien es tomado como una mala practica y se dejo de usar a partir de c99, los compiladores permiten este tipo de declaraciones para mantener la compatibilidad pero tambien arrojan los respectivos warnings por el uso de estas declaraciones.
 
-
+# Paso 6: Compilacion separada: Contratos y Modulos #
+()
 
