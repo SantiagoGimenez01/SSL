@@ -44,5 +44,14 @@ El codigo funciona como deberia hacerlo, compila correctamente e imprime por pan
 En conclusion, el codigo del archivo hello7.c tiene sus warnings debido a que se usan funciones no declaradas como printf pero en estas se permite usar la declaracion implicita la cual permite usar la funcion sin declararla formalmente gracias a que el compilador la "conoce" y puede asumir que esa funcion existe, si bien es tomado como una mala practica y se dejo de usar a partir de c99, los compiladores permiten este tipo de declaraciones para mantener la compatibilidad pero tambien arrojan los respectivos warnings por el uso de estas declaraciones.
 
 # Paso 6: Compilacion separada: Contratos y Modulos #
-()
+## Comandos ejecutados ##
+- (6.a) Escribo hello8.c y studio1.c
+- (6.b) Luego de investigar, ejecuto el comando gcc -o hello8 studio1.c hello8.c para compilar los archivos y generar el ejecutable. Luego de probarlo, me muestra algunos warnings y me genera la salida: 'La respuesta es 42'.
+- (6.c) Si agregamos o eliminamos argumentos en la invocacion de prontf nos saltaria un error ya que prontf esta definida como una funcion que acepta 2 cosas, const char* s y int i. Por lo que si luego la invocamos con un argumento mas o uno menos este no seguiria la misma "formula" con la que declaramos la funcion y no corresponderia a su forma de uso, por lo que logicamente daria un error.
+- (6.d) 
+- - (i) Escribo contrato studio.h
+- - (ii) Escribo hello9.c
+- - (iii) Escribo studio2.c
+- - (iv) La ventaja de incluir el contrato en los clientes y en el proveedor se da en que hay una relacion entre cliente, proveedor y un contrato en donde el cliente seria hello9.c, el proveedor seria studio2.c y de por medio entre ellos hay un contrato que es studio.h. En archivo del proveedor (studio2.c) se desarrolla la funcion prontf, luego en el contrato se define el prototipo de la funcion y en el cliente (hello9.c) se usa esa funcion prontf. De esta manera cuando se requiere cambiar la implementacion de la funcion se puede cambiar desde studio2.c sin afectar al cliente, es decir, hello9.c que solo utiliza la funcion mediante el contrato studio.h. Esto facilita el desarrollo de codigo ya que cada cosa mantiene su funcionalidad por separado y permite minimizar los errores y en caso de haberlos que se solucionen de una manera mas eficaz y eficiente.
+
 
