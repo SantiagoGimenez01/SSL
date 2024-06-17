@@ -1,5 +1,6 @@
 #include "histograma.h"
 #include <stdio.h>
+#include "Graficador.h"
 
 typedef enum{
     IN, //Dentro de la palabra

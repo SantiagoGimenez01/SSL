@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "histograma.h"
+#include "Graficador.h"
 
 int main(){
 
@@ -12,8 +13,7 @@ int main(){
     //Implementacion 1
     histograma_enum_switch(texto, histograma);
     //Muestreo temporal
-    for(int i = 0; i < 10; i++)
-        printf("%d", histograma[i]);
+    graficador(histograma, 10);
 
     return 0;
 }
