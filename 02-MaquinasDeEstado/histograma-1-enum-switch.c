@@ -1,38 +1,41 @@
 #include "histograma.h"
-
+#include <stdio.h>
 
 typedef enum{
     IN, //Dentro de la palabra
     OUT //Fuera de la palabra
 } State;
-
-int* histograma_enum_switch(const char* texto, int histograma[]){
+void histograma_enum_switch(const char* texto, int histograma[]){
     //Inicializacion de las variables:
-    State estado = OUT; //Comenzamos con el estado fuera de la palabra
-    int caracter; // Variable para contar caracteres
+    State estado = IN; //Comenzamos con el estado dentro de la palabra
+    int caracter = 0; // Variable para contar caracteres
     char c; //Variable para leer caracteres del texto
+    int i = 0;
 
     //Algoritmo:
-    while((c = getchar()) != '\0'){
+    while((c = texto[i]) != '\0'){
         switch(estado){
             case OUT:
+                ++histograma[caracter-1];
                 caracter = 0;
-                if(c != '\n' || c != " " || c != '\t'){
+                if(c != '\n' || c != ' ' || c != '\t'){
                     estado = IN;
                     ++caracter;
-                }         
+                }
+                        
             break;
 
             case IN:
-                if(c == '\n' || c == " " || c == '\t'){
+                ++caracter;
+                if(c == '\n' || c == ' ' || c == '\t'){
                     estado = OUT;
                     --caracter;
                 }
-                ++caracter;
-                histograma[caracter]++;
+                if(texto[i+1] == '\0')
+                    ++histograma[caracter-1];
             break;
         }
+        ++i;
     }
-    
 
 }
