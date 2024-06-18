@@ -5,12 +5,13 @@ typedef enum{
     IN, //Dentro de la palabra
     OUT //Fuera de la palabra
 } State;
+
 void histograma_enum_switch(const char* texto, int histograma[]){
     //Inicializacion de las variables:
     State estado = OUT; //Comenzamos con el estado dentro de la palabra
     int caracter = 0; // Variable para contar caracteres
     char c; //Variable para leer caracteres del texto
-    int i = 0;
+    int i = 0; //Variable para direccionar cada caracter de texto
 
     //Algoritmo:
     while((c = texto[i]) != '\0'){
@@ -36,6 +37,7 @@ void histograma_enum_switch(const char* texto, int histograma[]){
             break;
 
         }
+
         i++; //Cambia de caracter
     }
 
