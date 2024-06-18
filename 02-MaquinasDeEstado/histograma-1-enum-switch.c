@@ -19,7 +19,7 @@ void histograma_enum_switch(const char* texto, int histograma[]){
 
             case OUT: //Fuera de la palabra
                 caracter = 0; //Se reinicia el contador de caracteres
-                if(c != '\n' || c != ' ' || c != '\t'){ //Controla si el caracter es una letra o numero
+                if(c != ' ' || c != '\t'){ //Controla si el caracter es una letra o numero
                     estado = IN; //Cambia de estado
                     caracter = 1; //Suma el caracter leido
                 }         

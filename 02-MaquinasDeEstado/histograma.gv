@@ -3,9 +3,11 @@ digraph Histograma {
     2 [label="OUT"];
     3 [label="IN"];
     
-    1 -> 2
+    1 -> 2 [label=" caracter = 0, i = 0, estado = OUT"];
     2 -> 2 [label=" ' ' /t "];
     2 -> 3 [label=" char  "];
-    3 -> 2 [label=" ' ' /t "];
-    3 -> 3 [label = "  char"]
+    3 -> 2 [label=" ' ' /t 
+    histograma++"];
+    3 -> 3 [label = "  char
+    caracter++"]
 }
