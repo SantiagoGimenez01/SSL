@@ -5,15 +5,13 @@
 int main(){
 
     //Inicializo variables
-    int histograma[10] = {0};
-    char texto[100];
-    //Ingreso palabras mediante stdin
-    printf("Ingrese un texto: \n");
-    fgets(texto, sizeof(texto), stdin);
+    int histograma[20] = {0};
+
     //Implementacion 1
-    histograma_enum_switch(texto, histograma);
+    histograma_enum_switch(histograma);
+    
     //Muestreo temporal
-    graficador(histograma, 10);
+    graficador(histograma, 20);
 
     return 0;
 }

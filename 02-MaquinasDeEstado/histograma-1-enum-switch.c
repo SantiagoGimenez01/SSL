@@ -6,39 +6,52 @@ typedef enum{
     OUT //Fuera de la palabra
 } State;
 
-void histograma_enum_switch(const char* texto, int histograma[]){
+void histograma_enum_switch(int histograma[]){
     //Inicializacion de las variables:
     State estado = OUT; //Comenzamos con el estado dentro de la palabra
     int caracter = 0; // Variable para contar caracteres
     char c; //Variable para leer caracteres del texto
-    int i = 0; //Variable para direccionar cada caracter de texto
+    int ultimo; // Variable para contar ultima palabra
 
     //Algoritmo:
-    while((c = texto[i]) != '\0'){
+    while((c = getchar()) != EOF){
         switch(estado){ //Verificamos nuestro estado
+        //Fuera de la palabra
+            case OUT:
+                switch(c){
+                    case '\n':
+                    case '\t':
+                    case ' ':
+                        //Nada
+                    break;
 
-            case OUT: //Fuera de la palabra
-                caracter = 0; //Se reinicia el contador de caracteres
-                if(c != ' ' || c != '\t'){ //Controla si el caracter es una letra o numero
-                    estado = IN; //Cambia de estado
-                    caracter = 1; //Suma el caracter leido
-                }         
-            break;
-
-            case IN: //Dentro de la palabra
-                ++caracter; //Suma caracter
-                if(c == ' ' || c == '\t'){ //Controla si es un espacio
-                    --caracter; //Resta el caracter ' ' del largo de la palabra
-                    ++histograma[caracter-1]; // Suma uno en la respectiva posicion segun el largo de la palabra leida 
-                    estado = OUT; //Cambia de estado         
+                    default:
+                        ++caracter; //Sumo el primer caracter encontrado
+                        estado = IN; //Cambio de estado
                 }
-                if(texto[i+1] == '\0') //Controla si luego del caracter leido viene un espacio o EOF
-                    ++histograma[caracter-1]; // Suma uno en la respectiva posicion segun el largo de la palabra leida 
+            break;
+        //Dentro de la palabra
+            case IN:
+                switch(c){
+                    case '\n': //Salto de linea
+                    case '\t': //Tabulador
+                    case ' ': //Espacio
+                        if(caracter < 21)
+                            histograma[caracter - 1]++; //Palabra con largo igual o menor a 20
+                        else
+                            histograma[19]++; //Palabra de 20 o mas
+                            caracter = 0; //Reseteamos contador de caracteres
+                            estado = OUT; //Cambio de estado
+                    break;
+
+                    default:
+                        ++caracter; //Cuento caracteres
+                }
             break;
 
         }
 
-        i++; //Cambia de caracter
     }
-
+    if(caracter > 0) //Controlo si quedo alguna palabra sin contar
+        histograma[caracter - 1]++; //Ultima palabra (por si el prox caracter es '\0')
 }

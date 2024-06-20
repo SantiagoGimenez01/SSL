@@ -4,7 +4,10 @@
 void graficador(int longitudes[], int dim){
 
     for(int i = 0; i < dim; i++){
-        printf("Longitud (%d):", i+1);
+        if(i < 19)
+            printf("Longitud (%d):", i+1);
+        else
+            printf("Longitud (%d o mas):", i+1);
         for(int j = 0; j <= longitudes[i]; j++){
             if(j>0)
                 printf("|");
