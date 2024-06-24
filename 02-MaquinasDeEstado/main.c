@@ -8,8 +8,11 @@ int main(){
     int histograma[20] = {0};
 
     //Implementacion 1
-    histograma_enum_switch(histograma);
+    //histograma_enum_switch(histograma);
     
+    //Implementacion 2
+    histograma_goto(histograma);
+
     //Muestreo temporal
     graficador(histograma, 20);
 
