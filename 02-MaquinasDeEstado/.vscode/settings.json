@@ -2,6 +2,7 @@
     "files.associations": {
         "stdio.h": "c",
         "histograma.h": "c",
-        "graficador.h": "c"
+        "graficador.h": "c",
+        "random": "c"
     }
 }

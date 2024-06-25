@@ -1,9 +1,12 @@
 #include "histograma.h"
 #include <stdio.h>
 
+#define MAX_CARACTERES 23
+
 typedef enum{
     IN, //Dentro de la palabra
-    OUT //Fuera de la palabra
+    OUT, //Fuera de la palabra
+    END //Fin
 } State;
 
 void histograma_enum_switch(int histograma[]){
@@ -11,7 +14,6 @@ void histograma_enum_switch(int histograma[]){
     State estado = OUT; //Comenzamos con el estado dentro de la palabra
     int caracter = 0; // Variable para contar caracteres
     char c; //Variable para leer caracteres del texto
-    int ultimo; // Variable para contar ultima palabra
 
     //Algoritmo:
     while((c = getchar()) != EOF){
@@ -24,7 +26,9 @@ void histograma_enum_switch(int histograma[]){
                     case ' ':
                         //Nada
                     break;
-
+                    case EOF:
+                        estado = END;
+                    break;
                     default:
                         ++caracter; //Sumo el primer caracter encontrado
                         estado = IN; //Cambio de estado
@@ -33,25 +37,32 @@ void histograma_enum_switch(int histograma[]){
         //Dentro de la palabra
             case IN:
                 switch(c){
-                    case '\n': //Salto de linea
-                    case '\t': //Tabulador
-                    case ' ': //Espacio
-                        if(caracter < 21)
-                            histograma[caracter - 1]++; //Palabra con largo igual o menor a 20
+                    case '\n':
+                    case '\t':
+                    case ' ': 
+                        if(caracter <= MAX_CARACTERES)
+                            histograma[caracter - 1]++; //Palabra con largo igual o menor a 23
                         else
-                            histograma[19]++; //Palabra de 20 o mas
+                            histograma[MAX_CARACTERES - 1]++; //Palabra de mas de 23
                             caracter = 0; //Reseteamos contador de caracteres
                             estado = OUT; //Cambio de estado
                     break;
-
+                    case EOF:
+                        estado = END;
+                    break;
                     default:
                         ++caracter; //Cuento caracteres
                 }
+            break;
+        //Caso EOF
+            case END:
+                if(caracter <= MAX_CARACTERES)
+                    histograma[caracter - 1]++;
+                else
+                    histograma[MAX_CARACTERES - 1]++;
             break;
 
         }
 
     }
-    if(caracter > 0) //Controlo si quedo alguna palabra sin contar
-        histograma[caracter - 1]++; //Ultima palabra (por si el prox caracter es '\0')
 }

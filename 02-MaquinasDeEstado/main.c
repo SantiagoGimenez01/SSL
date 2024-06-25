@@ -5,16 +5,19 @@
 int main(){
 
     //Inicializo variables
-    int histograma[20] = {0};
+    int histograma[23] = {0};
 
     //Implementacion 1
-    //histograma_enum_switch(histograma);
+    histograma_enum_switch(histograma);
     
     //Implementacion 2
-    histograma_goto(histograma);
+    //histograma_goto(histograma);
+
+    //Implementacion 3
+    //histograma_recursividad(histograma);
 
     //Muestreo temporal
-    graficador(histograma, 20);
+     graficador(histograma);
 
     return 0;
 }

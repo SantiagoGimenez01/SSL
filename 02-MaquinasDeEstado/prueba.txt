@@ -1,5 +1,19 @@
-   hola 
-       como    andas   
-    pepito a    
+#include <stdio.h>
+#include "histograma.h"
+#include "Graficador.h"
 
+int main(){
+
+    //Inicializo variables
+    int histograma[23] = {0};
+
+
+    //Implementacion 3
+    histograma_recursividad(histograma);
+
+    //Muestreo temporal
+     graficador(histograma);;
+
+    return 0;
+}
     

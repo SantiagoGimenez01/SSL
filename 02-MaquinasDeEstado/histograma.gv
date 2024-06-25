@@ -3,8 +3,8 @@ digraph Histograma {
     2 [label="IN"];
     
 
-    1 -> 1 [label=" ' ' /t | nada"];
+    1 -> 1 [label=" ' ' /t /n | nada"];
     1 -> 2 [label=" otro | caracter++"];
-    2 -> 1 [label=" ' ' /t | histograma++, caracter = 0"];
+    2 -> 1 [label=" ' ' /t /n | histograma++, caracter = 0"];
     2 -> 2 [label = "  otro | caracter++"]
 }
