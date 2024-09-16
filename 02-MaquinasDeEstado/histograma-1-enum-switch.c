@@ -1,15 +1,13 @@
 #include "histograma.h"
 #include <stdio.h>
 
-#define MAX_CARACTERES 23
-
 typedef enum{
     IN, //Dentro de la palabra
     OUT, //Fuera de la palabra
     END //Fin
 } State;
 
-void histograma_enum_switch(int histograma[]){
+void histograma_enum_switch(DataSet* histograma){
     //Inicializacion de las variables:
     State estado = OUT; //Comenzamos con el estado dentro de la palabra
     int caracter = 0; // Variable para contar caracteres
@@ -40,10 +38,10 @@ void histograma_enum_switch(int histograma[]){
                     case '\n':
                     case '\t':
                     case ' ': 
-                        if(caracter <= MAX_CARACTERES)
-                            histograma[caracter - 1]++; //Palabra con largo igual o menor a 23
+                        if(caracter <= histograma->dim)
+                            histograma->longitudes[caracter - 1]++; //Palabra con largo igual o menor a 23
                         else
-                            histograma[MAX_CARACTERES - 1]++; //Palabra de mas de 23
+                            histograma->longitudes[histograma->dim - 1]++; //Palabra de mas de 23
                             caracter = 0; //Reseteamos contador de caracteres
                             estado = OUT; //Cambio de estado
                     break;
@@ -56,10 +54,10 @@ void histograma_enum_switch(int histograma[]){
             break;
         //Caso EOF
             case END:
-                if(caracter <= MAX_CARACTERES)
-                    histograma[caracter - 1]++;
+                if(caracter <= histograma->dim)
+                    histograma->longitudes[caracter - 1]++;
                 else
-                    histograma[MAX_CARACTERES - 1]++;
+                    histograma->longitudes[histograma->dim - 1]++;
             break;
 
         }

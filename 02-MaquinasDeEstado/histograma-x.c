@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include "histograma.h"
-#include "DataSet.h"
 
 
 //vamos a implementar una tabla 
@@ -45,7 +44,7 @@ Estado tablaTransiciones[CANT_ESTADOS][CANT_ENTRADAS] = {
 };
 
 // Función para procesar la entrada y generar el histograma
-void histograma(DataSet* mi_dataset) 
+void histogramaX(DataSet* histograma) 
 {   
     Estado estadoActual = OUT;   // Estado inicial
     int longitud_palabra = 0;
@@ -60,13 +59,13 @@ void histograma(DataSet* mi_dataset)
         switch (estadoActual) {
             case OUT:
                 if (longitud_palabra > 0) {
-                    mi_dataset->valores[longitud_palabra-1]++;
+                    histograma->longitudes[longitud_palabra-1]++;
                     longitud_palabra = 0;
                 }
                 break;
             case IN:
                 //Si se llego al maximo de caracteres dejo de sumar a la longitud
-                if (longitud_palabra <= mi_dataset->cant_max_caracteres) {
+                if (longitud_palabra <= histograma->dim) {
                     longitud_palabra++;
                 }
                 break;
@@ -76,6 +75,6 @@ void histograma(DataSet* mi_dataset)
 
     // Guardo la ultima palabra que se estaba contando
     if (longitud_palabra > 0) {
-        mi_dataset->valores[longitud_palabra-1]++;
+        histograma->longitudes[longitud_palabra-1]++;
     }
 }
