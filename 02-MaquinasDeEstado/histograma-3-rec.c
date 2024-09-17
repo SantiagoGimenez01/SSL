@@ -1,18 +1,16 @@
 #include <stdio.h>
 #include "histograma.h"
 
-#define MAX_CARACTERES 23
-
 //Inicializamos variables
 int caracter = 0;
 char c;
 
 //Prototipos
-void espaciosBlancos(int histograma[]);
-void contadorCaracteres(int histograma[]);
-void fin(int histograma[]);
+void espaciosBlancos(DataSet* histograma);
+void contarCaracteres(DataSet* histograma);
+void fin(DataSet* histograma);
 
-void histograma_recursividad(int histograma[]){
+void histograma_recursividad(DataSet* histograma){
 
     //Algoritmo
 
@@ -21,7 +19,7 @@ void histograma_recursividad(int histograma[]){
         
 }
 
-void espaciosBlancos(int histograma[]){     
+void espaciosBlancos(DataSet* histograma){     
 
         switch(c = getchar()){
         //Fuera de la palabra
@@ -43,17 +41,17 @@ void espaciosBlancos(int histograma[]){
         }
 }
 
-void contarCaracteres(int histograma[]){
+void contarCaracteres(DataSet* histograma){
     
     switch(c = getchar()){
         //Fuera de la palabra
             case ' ':
             case '\t':
             case '\n':
-                if(caracter <= MAX_CARACTERES)  //Palabra de largo 1 a 23
-                    histograma[caracter - 1]++; //Sumo al histograma segun posicion
+                if(caracter <= histograma->dim)  //Palabra de largo 1 a 23
+                    histograma->longitudes[caracter - 1]++; //Sumo al histograma segun posicion
                 else
-                    histograma[MAX_CARACTERES - 1]++; //Sumo en la ultima posicion si la palabra es mayor a 23
+                    histograma->longitudes[histograma->dim - 1]++; //Sumo en la ultima posicion si la palabra es mayor a 23
                 caracter = 0; // Reseteamos caracteres
                 espaciosBlancos(histograma); //Cambio de estado
             break;
@@ -70,9 +68,9 @@ void contarCaracteres(int histograma[]){
         }
 }
 
-void fin(int histograma[]){
-    if(caracter <= MAX_CARACTERES) //Sumamos ultima palabra a posicion segun largo
-        histograma[caracter - 1]++;
+void fin(DataSet* histograma){
+    if(caracter <= histograma->dim) //Sumamos ultima palabra a posicion segun largo
+        histograma->longitudes[caracter - 1]++;
     else
-        histograma[MAX_CARACTERES - 1]++;
+        histograma->longitudes[histograma->dim - 1]++;
 }
