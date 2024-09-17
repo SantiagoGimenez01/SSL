@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "histograma.h"
 
-void histograma_goto(int histograma[]){
+void histograma_goto(DataSet* histograma){
     int caracter = 0;
     goto Out;
 
@@ -23,12 +23,12 @@ void histograma_goto(int histograma[]){
             case ' ':
             case '\t':
             case '\n':
-                histograma[caracter - 1]++;
+                histograma->longitudes[caracter - 1]++;
                 caracter = 0;
                 goto Out;
             case EOF:
                 if(caracter > 0)
-                    histograma[caracter - 1]++;
+                    histograma->longitudes[caracter - 1]++;
                 break;
             default:
                 ++caracter;

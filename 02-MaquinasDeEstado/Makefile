@@ -32,4 +32,4 @@ Graficador.o: Graficador.c Graficador.h
 # Regla para limpiar los archivos generados
 .PHONY: clean
 clean:
-	rm -f histograma-1-enum-switch.o histograma-2-goto.o histograma-3-rec.o Graficador.o main.o main.exe
+	rm -f histograma-1-enum-switch.o histograma-2-goto.o histograma-3-rec.o Graficador.o main.o switch.exe goto.exe recursividad.exe

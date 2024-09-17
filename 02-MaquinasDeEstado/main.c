@@ -12,13 +12,13 @@ int main(){
     DataSet histograma = {{0}, longitudMax};
 
     //Implementacion 1
-    histograma_enum_switch(&histograma);
+    //histograma_enum_switch(&histograma);
     
     //Implementacion 2
-    //histograma_goto(histograma);
+    //histograma_goto(&histograma);
 
     //Implementacion 3
-    //histograma_recursividad(histograma);
+    histograma_recursividad(&histograma);
 
     //Muestreo temporal
      graficador(&histograma);
