@@ -44,7 +44,7 @@ Estado tablaTransiciones[CANT_ESTADOS][CANT_ENTRADAS] = {
 };
 
 // Función para procesar la entrada y generar el histograma
-void histogramaX(DataSet* histograma) 
+void histograma(DataSet* histograma) 
 {   
     Estado estadoActual = OUT;   // Estado inicial
     int longitud_palabra = 0;

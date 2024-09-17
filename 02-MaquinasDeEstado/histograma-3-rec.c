@@ -10,7 +10,7 @@ void espaciosBlancos(DataSet* histograma);
 void contarCaracteres(DataSet* histograma);
 void fin(DataSet* histograma);
 
-void histograma_recursividad(DataSet* histograma){
+void getHistograma(DataSet* histograma){
 
     //Algoritmo
 

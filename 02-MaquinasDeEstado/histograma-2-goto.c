@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "histograma.h"
 
-void histograma_goto(DataSet* histograma){
+void getHistograma(DataSet* histograma){
     int caracter = 0;
     goto Out;
 

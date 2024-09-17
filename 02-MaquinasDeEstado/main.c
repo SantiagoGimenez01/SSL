@@ -11,14 +11,8 @@ int main(){
     const int longitudMax = 23;
     DataSet histograma = {{0}, longitudMax};
 
-    //Implementacion 1
-    //histograma_enum_switch(&histograma);
-    
-    //Implementacion 2
-    //histograma_goto(&histograma);
-
-    //Implementacion 3
-    histograma_recursividad(&histograma);
+    //Histograma
+    getHistograma(&histograma);
 
     //Muestreo temporal
      graficador(&histograma);

@@ -7,7 +7,7 @@ typedef enum{
     END //Fin
 } State;
 
-void histograma_enum_switch(DataSet* histograma){
+void getHistograma(DataSet* histograma){
     //Inicializacion de las variables:
     State estado = OUT; //Comenzamos con el estado dentro de la palabra
     int caracter = 0; // Variable para contar caracteres
