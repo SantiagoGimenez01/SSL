@@ -1,19 +1,14 @@
 #include <stdio.h>
 #include "Graficador.h"
 
-#include <stdio.h>
-#include "Graficador.h"
+void graficador(DataSet* histograma){
 
-const int dim = 23;
-
-void graficador(int longitudes[]){
-
-    for(int i = 0; i < dim; i++){
-        if(i < dim - 1)
+    for(int i = 0; i < histograma->dim; i++){
+        if(i < histograma->dim - 1)
             printf("Longitud (%d):", i+1);
         else
-            printf("Longitud (%d o mas):", dim);
-        for(int j = 0; j <= longitudes[i]; j++){
+            printf("Longitud (%d o mas):", histograma->dim);
+        for(int j = 0; j <= histograma->longitudes[i]; j++){
             if(j>0)
                 printf("|");
         }

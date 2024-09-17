@@ -1,19 +1,5 @@
-#include <stdio.h>
-#include "histograma.h"
-#include "Graficador.h"
-
-int main(){
-
-    //Inicializo variables
-    int histograma[23] = {0};
-
-
-    //Implementacion 3
-    histograma_recursividad(histograma);
-
-    //Muestreo temporal
-     graficador(histograma);;
-
-    return 0;
-}
-    
+hola
+como va
+estudio
+ingenieria en sistemas de informacion
+y estoy probando mi programa  
