@@ -2,7 +2,7 @@
 #define SCANNER_H_INCLUDED
 
 //Tipos de token
-enum TokensTypes{
+typedef enum{
     KEYWORD_CUADRADO,  
     KEYWORD_RECTANGULO,     
     KEYWORD_CIRCULO,       
@@ -21,7 +21,7 @@ enum TokensTypes{
     STRING_DELIMITER,
     WHITESPACE,
     END
-};
+}TokenTypes;
 
 //Token
 typedef struct{
